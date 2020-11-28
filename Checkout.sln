@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout", "Checkout\Checkout.csproj", "{3FA22DC1-33B2-40F2-A100-3B90993C7A8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.Tests", "Checkout.Tests\Checkout.Tests.csproj", "{1CC46582-141A-4CD1-A95A-F4BD92A31165}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EFACEC6A-939C-4E93-A83C-46C43382B25F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FA22DC1-33B2-40F2-A100-3B90993C7A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA22DC1-33B2-40F2-A100-3B90993C7A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA22DC1-33B2-40F2-A100-3B90993C7A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA22DC1-33B2-40F2-A100-3B90993C7A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CC46582-141A-4CD1-A95A-F4BD92A31165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC46582-141A-4CD1-A95A-F4BD92A31165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC46582-141A-4CD1-A95A-F4BD92A31165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC46582-141A-4CD1-A95A-F4BD92A31165}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10BF001E-5CC1-4336-95E6-DA8C25291C4B}
+	EndGlobalSection
+EndGlobal
