@@ -6,10 +6,12 @@ namespace Checkout
     public class Basket
     {
         private readonly ICollection<Item> _items;
+        private readonly IMultiItemDiscount _discount;
 
-        public Basket()
+        public Basket(IMultiItemDiscount discount)
         {
             _items = new List<Item>();
+            _discount = discount;
         }
 
         public void AddItem(Item item)
@@ -19,7 +21,9 @@ namespace Checkout
 
         public decimal GetTotal()
         {
-            return _items.Sum(x => x.Price);
+            var total = _items.Sum(x => x.Price);
+            total -= _discount.GetDiscount(_items);
+            return total;
         }
     }
 }
