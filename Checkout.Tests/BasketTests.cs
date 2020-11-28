@@ -6,6 +6,9 @@ namespace Checkout.Tests
     public class BasketTests
     {
         private readonly Basket _basket;
+        private readonly decimal _itemAPrice = 10m;
+        private readonly decimal _itemBPrice = 15m;
+        private readonly decimal _itemCPrice = 40m;
 
         public BasketTests()
         {
@@ -29,7 +32,7 @@ namespace Checkout.Tests
         public void ShouldPriceItemACorrectly(int count, decimal expectedTotal)
         {
             // Given
-            AddItemsToBasket("A", 10m, count);
+            AddItemsToBasket("A", _itemAPrice, count);
 
             // When
             var total = _basket.GetTotal();
@@ -48,7 +51,22 @@ namespace Checkout.Tests
         public void ShouldApplyAThreeForFortyDiscountToItemB(int count, decimal expectedTotal)
         {
             // Given
-            AddItemsToBasket("B", 15m, count);
+            AddItemsToBasket("B", _itemBPrice, count);
+
+            // When
+            var total = _basket.GetTotal();
+
+            // Then
+            total.Should().Be(expectedTotal);
+        }
+
+        [Theory]
+        [InlineData(1, 40)]
+        [InlineData(2, 80)]
+        public void ShouldPriceItemCCorrectly(int count, decimal expectedTotal)
+        {
+            // Given
+            AddItemsToBasket("C", _itemCPrice, count);
 
             // When
             var total = _basket.GetTotal();
@@ -61,14 +79,15 @@ namespace Checkout.Tests
         public void ShouldPriceAMixedBasketOfGoodsCorrectly()
         {
             // Given
-            AddItemsToBasket("A", 10m, 1);
-            AddItemsToBasket("B", 15m, 3);
+            AddItemsToBasket("A", _itemAPrice, 1);
+            AddItemsToBasket("B", _itemBPrice, 3);
+            AddItemsToBasket("C", _itemCPrice, 1);
 
             // When
             var total = _basket.GetTotal();
 
             // Then
-            total.Should().Be(50m);
+            total.Should().Be(90m);
         }
 
         private void AddItemsToBasket(string sku, decimal price, int count)
